@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>BAJA_SS1_PROCIV.kml</name>
+	<Style id="sn_cabs0">
+		<IconStyle>
+			<scale>0.9</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/cabs.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00ffff</color>
+			<scale>0.9</scale>
+		</LabelStyle>
+	</Style>
+	<StyleMap id="msn_cabs">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_cabs1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_cabs</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_cabs1">
+		<IconStyle>
+			<scale>0.9</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/cabs.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00ffff</color>
+			<scale>0.9</scale>
+		</LabelStyle>
+	</Style>
+	<Style id="sh_cabs">
+		<IconStyle>
+			<scale>1.05</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/cabs.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00ffff</color>
+			<scale>0.9</scale>
+		</LabelStyle>
+	</Style>
+	<StyleMap id="msn_cabs0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_cabs000</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_cabs0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_cabs10">
+		<IconStyle>
+			<scale>1.05</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/cabs.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00ffff</color>
+			<scale>0.9</scale>
+		</LabelStyle>
+	</Style>
+	<Style id="sn_cabs000">
+		<IconStyle>
+			<scale>0.9</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/cabs.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00ffff</color>
+			<scale>0.9</scale>
+		</LabelStyle>
+	</Style>
+	<StyleMap id="msn_cabs100">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_cabs</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_cabs1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_cabs1">
+		<IconStyle>
+			<scale>1.05</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/cabs.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00ffff</color>
+			<scale>0.9</scale>
+		</LabelStyle>
+	</Style>
+	<Style id="sh_cabs100">
+		<IconStyle>
+			<scale>1.05</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/cabs.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00ffff</color>
+			<scale>0.9</scale>
+		</LabelStyle>
+	</Style>
+	<Style id="sh_cabs0">
+		<IconStyle>
+			<scale>1.05</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/cabs.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00ffff</color>
+			<scale>0.9</scale>
+		</LabelStyle>
+	</Style>
+	<Style id="sn_cabs">
+		<IconStyle>
+			<scale>0.9</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/cabs.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00ffff</color>
+			<scale>0.9</scale>
+		</LabelStyle>
+	</Style>
+	<StyleMap id="msn_cabs1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_cabs0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_cabs100</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_cabs10">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_cabs00</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_cabs10</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_cabs00">
+		<IconStyle>
+			<scale>0.9</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/cabs.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00ffff</color>
+			<scale>0.9</scale>
+		</LabelStyle>
+	</Style>
+	<Folder>
+		<name>BAJA_SS1_PROCIV</name>
+		<Placemark>
+			<name>DESENCARCERAMENTO</name>
+			<LookAt>
+				<longitude>-8.702541886547428</longitude>
+				<latitude>37.92303760075814</latitude>
+				<altitude>0</altitude>
+				<heading>0.02201156764177114</heading>
+				<tilt>0</tilt>
+				<range>603.6500585239897</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_cabs0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-8.70282784224295,37.92306991395086,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>AMBULÂNCIA</name>
+			<LookAt>
+				<longitude>-8.702541886547428</longitude>
+				<latitude>37.92303760075814</latitude>
+				<altitude>0</altitude>
+				<heading>0.02201156764177114</heading>
+				<tilt>0</tilt>
+				<range>603.6500585239897</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_cabs0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-8.702523301062486,37.92300531571602,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>AMBULÂNCIA</name>
+			<LookAt>
+				<longitude>-8.755975718575527</longitude>
+				<latitude>37.91875638538166</latitude>
+				<altitude>0</altitude>
+				<heading>-0.1041605014944022</heading>
+				<tilt>0</tilt>
+				<range>1179.873386302965</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_cabs10</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-8.760019901811123,37.91928688150546,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>COMBATE INCÊNDIO</name>
+			<LookAt>
+				<longitude>-8.783920086695229</longitude>
+				<latitude>37.98451329129643</latitude>
+				<altitude>0</altitude>
+				<heading>-0.04968186574956209</heading>
+				<tilt>0</tilt>
+				<range>2989.940533962742</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_cabs100</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-8.77958745434249,37.9857029441611,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>DESENCARCERAMENTO</name>
+			<LookAt>
+				<longitude>-8.727002735163126</longitude>
+				<latitude>38.19022289899296</latitude>
+				<altitude>0</altitude>
+				<heading>-0.01468843430771067</heading>
+				<tilt>0</tilt>
+				<range>1784.888670861712</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_cabs100</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-8.730533167799868,38.18878199365295,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>COMBATE INCÊNDIO</name>
+			<LookAt>
+				<longitude>-8.727002735163126</longitude>
+				<latitude>38.19022289899296</latitude>
+				<altitude>0</altitude>
+				<heading>-0.01468843430771067</heading>
+				<tilt>0</tilt>
+				<range>1784.888670861712</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_cabs100</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-8.730472135690462,38.1884472146432,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>AMBULÂNCIA</name>
+			<LookAt>
+				<longitude>-8.691818874677958</longitude>
+				<latitude>38.25327140371131</latitude>
+				<altitude>0</altitude>
+				<heading>0.002829805422739247</heading>
+				<tilt>0</tilt>
+				<range>988.3058300822846</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_cabs1</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-8.688730339103277,38.25399986603328,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>COMBATE INCÊNDIO</name>
+			<LookAt>
+				<longitude>-8.606479636322565</longitude>
+				<latitude>38.19207771893455</latitude>
+				<altitude>0</altitude>
+				<heading>0.06617800882526857</heading>
+				<tilt>0</tilt>
+				<range>742.7448474492318</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_cabs</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-8.606970417311583,38.19134077925569,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>AMBULÂNCIA</name>
+			<LookAt>
+				<longitude>-8.818162527783617</longitude>
+				<latitude>38.01406080876226</latitude>
+				<altitude>0</altitude>
+				<heading>-0.07509251124401643</heading>
+				<tilt>0</tilt>
+				<range>981.2360606123724</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_cabs1</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-8.819152011565706,38.01479080430745,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>
