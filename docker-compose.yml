@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+  confirm:
+    build: .
+    ports:
+      - "8003:8050"
