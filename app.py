@@ -22,7 +22,7 @@ import plotly.express as px
 #              APP STARTS HERE
 # -----------------------------------------------
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], title='CONFIRM - SK4U', update_title=None,
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], title='CONFIRM - BAJATT 2022', update_title=None,
                 meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=0.7, minimum-scale=0.4"}],
                 )
 
