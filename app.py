@@ -32,11 +32,10 @@ CONFIRM_LOGO = app.get_asset_url('CONFIRM_Logotype.png')
 
 color_map = {
     "WARNING":"#C81D25",
-    "AVARIA":"#DE6E4B",
-    "ACIDENTE":"#AC9FBB",
-    "AVARIA MECÂNICA":"#4F5D75",
-    "DESPISTE":"#2D3142",
-    "DESISTÊNCIA":"#242424"
+    "ACIDENTE":"#4F5D75",
+    "AVARIA MECÂNICA":"#DE6E4B",
+    "DESISTÊNCIA CONFIRMADA":"#2D3142",
+    "DESISTÊNCIA NÃO CONFIRMADA":"#242424"
 }
 
 
@@ -47,7 +46,7 @@ app.layout = dbc.Container(
                 # AUTOMATIC UPDATER 
                 dcc.Interval(
                     id='interval-component',
-                    interval=60*1000, # in milliseconds
+                    interval=20*1000, # in milliseconds
                     n_intervals=0
                 ),
                 dbc.Col(
@@ -128,11 +127,11 @@ app.layout = dbc.Container(
                         [
                             dbc.Card(
                                     [
-                                        dbc.CardHeader("TOTAL MECHANICAL BREAKDOWNS", style={"background": "#4F5D75","color":"white"}),
+                                        dbc.CardHeader("ACCIDENTS", style={"background": "#4F5D75","color":"white"}),
                                         dbc.CardBody(
                                                     [
-                                                        html.H6("AVARIA MECÂNICA", style={"color":"#4F5D75"}, className="card-title"),
-                                                        html.H4(id="total_mechs"),
+                                                        html.H6("ACIDENTES", style={"color":"#4F5D75"}, className="card-title"),
+                                                        html.H4(id="total_accidents"),
                                                     ],
 
                                         ),
@@ -140,11 +139,11 @@ app.layout = dbc.Container(
                             ),
                             dbc.Card(
                                     [
-                                        dbc.CardHeader("OFF PISTE", style={"background": "#2D3142","color":"white"}),
+                                        dbc.CardHeader("CONFIRMED OUT OF RACE", style={"background": "#2D3142","color":"white"}),
                                         dbc.CardBody(
                                                     [
-                                                        html.H6("DESPISTE", style={"color":"#2D3142"}, className="card-title"),
-                                                        html.H4(id="total_outs"),
+                                                        html.H6("DESISTÊNCIA", style={"color":"#2D3142"}, className="card-title"),
+                                                        html.H4(id="total_gaveup_confirmed"),
                                                     ],
 
                                         ),
@@ -152,11 +151,11 @@ app.layout = dbc.Container(
                             ),
                             dbc.Card(
                                     [
-                                        dbc.CardHeader("OUT OF RACE", style={"background": "#242424","color":"white"}),
+                                        dbc.CardHeader("NON-CONFIRMED OUT OF RACE", style={"background": "#242424","color":"white"}),
                                         dbc.CardBody(
                                                     [
-                                                        html.H6("DESISTÊNCIA", style={"color":"#242424"}, className="card-title"),
-                                                        html.H4(id="total_offpiste"),
+                                                        html.H6("DESISTÊNCIA NC", style={"color":"#242424"}, className="card-title"),
+                                                        html.H4(id="total_gaveup_nconfirmed"),
                                                     ],
 
                                         ),
@@ -178,6 +177,17 @@ app.layout = dbc.Container(
             [
                 dbc.Col(
                     [
+                        dbc.Row(dcc.Graph(id='timeline'))
+                    ],
+                ),
+                
+            ], 
+        style={"height": "10%", "background-color": "#242424"},
+        ),  
+        dbc.Row(
+            [
+                dbc.Col(
+                    [
                         dbc.Row(
                             [
                                 dbc.Col(width=4,xs=12, sm=12,md=4,lg=4,xl=4),
@@ -192,7 +202,7 @@ app.layout = dbc.Container(
                                     ),
                                 ),
                             ],
-                         style={"height": "30%", "background-color": "#242424"},
+                         style={"height": "20%", "background-color": "#242424"},
                         ),
                     ],
                 ),
@@ -208,14 +218,16 @@ app.layout = dbc.Container(
 # DEFINE CALL BACKS 
 
 @app.callback(
-    Output(component_id="map",component_property="figure"),                           # returns map
-    Output(component_id="totals",component_property="children"),                    # returns variable
+    Output(component_id="map",component_property="figure"),                          
+    Output(component_id="totals",component_property="children"),                    
     Output(component_id="total_warnings",component_property="children"),                     # returns variable
-    Output(component_id="total_breakdowns",component_property="children"),                 # returns variable
-    Output(component_id="total_mechs",component_property="children"),               # returns variable
-    Output(component_id="total_outs",component_property="children"),                             # returns table
-    Output(component_id="total_offpiste",component_property="children"),                             # returns table
+    Output(component_id="total_breakdowns",component_property="children"), 
+    Output(component_id="total_accidents",component_property="children"),  
+    Output(component_id="total_gaveup_confirmed",component_property="children"),               # returns variable
+    Output(component_id="total_gaveup_nconfirmed",component_property="children"),                             # returns table                            # returns table
     Output(component_id="pie",component_property="figure"),  
+    Output(component_id="timeline",component_property="figure"),  
+
     Input(component_id="interval-component", component_property="n_intervals"),             # Triggers Call Back based on time update
 
 )
@@ -230,22 +242,25 @@ def confirmUupdate(value):
     df_ss1_cc = pd.read_csv('ss1_cc.csv')
 
 
-    df_live_incidents = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vT5ZYA_C5ziVBuAAhRI0LKOMSjkpr2A157Q_WNENhgFVsivnRil4Au3lXE0r_QOg1RnE5HRcN_k29Ej/pub?gid=1319524241&single=true&output=csv')
-    df_live_cc = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vT5ZYA_C5ziVBuAAhRI0LKOMSjkpr2A157Q_WNENhgFVsivnRil4Au3lXE0r_QOg1RnE5HRcN_k29Ej/pub?gid=89946936&single=true&output=csv')
+    df_live_incidents = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vT_L10XsTy6OEUN6OOOdEbLDeMzAW000x2bmgXF5acnOY6v8lJpooMiOg4uFQ3e3CI2MfFdDB07I5X_/pub?gid=812677681&single=true&output=csv')
+    df_live_cc = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vT_L10XsTy6OEUN6OOOdEbLDeMzAW000x2bmgXF5acnOY6v8lJpooMiOg4uFQ3e3CI2MfFdDB07I5X_/pub?gid=1268287201&single=true&output=csv')
+    df_live_warnings = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vT5ZYA_C5ziVBuAAhRI0LKOMSjkpr2A157Q_WNENhgFVsivnRil4Au3lXE0r_QOg1RnE5HRcN_k29Ej/pub?gid=1615808910&single=true&output=csv')
 
-
+    df_live_incidents = df_live_incidents.dropna()
+    df_live_cc = df_live_cc.dropna()
+    df_live_warnings = df_live_warnings.dropna()
 
     totals = str(round(df_live_incidents['total_incidents'].sum()))
 
-    total_warnings = df_live_incidents.loc[df_live_incidents['type'] == "WARNING", 'total_incidents'].sum()
+    total_warnings = df_live_warnings.loc[df_live_warnings['type'] == "WARNING", 'count'].sum()
 
-    total_breakdowns = df_live_incidents.loc[df_live_incidents['type'] == "AVARIA", 'total_incidents'].sum()
+    total_breakdowns = df_live_incidents.loc[df_live_incidents['type'] == "AVARIA MECÂNICA", 'total_incidents'].sum()
 
-    total_mech = df_live_incidents.loc[df_live_incidents['type'] == "AVARIA MECÂNICA", 'total_incidents'].sum()
+    total_accidents = df_live_incidents.loc[df_live_incidents['type'] == "ACIDENTE", 'total_incidents'].sum()
 
-    total_out = df_live_incidents.loc[df_live_incidents['type'] == "DESPISTE", 'total_incidents'].sum()
+    total_gaveup_confirmed = df_live_incidents.loc[df_live_incidents['type'] == "DESISTÊNCIA CONFIRMADA", 'total_incidents'].sum()
 
-    total_gaveup = df_live_incidents.loc[df_live_incidents['type'] == "DESISTÊNCIA", 'total_incidents'].sum()
+    total_gaveup_nconfirmed = df_live_incidents.loc[df_live_incidents['type'] == "DESISTÊNCIA NÃO CONFIRMADA", 'total_incidents'].sum()
 
 
     fig = px.scatter_mapbox(df_live_cc, lat="lat", lon="lon", size='reports',hover_name="reporter", hover_data=["reports"],
@@ -254,9 +269,19 @@ def confirmUupdate(value):
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
     pie_chart = px.pie(df_live_incidents,names='type',values='total_incidents',hole=0.6,color='type',color_discrete_map=color_map)
+    pie_chart.update_layout(showlegend=False)
 
 
-    return fig, totals, total_warnings, total_breakdowns, total_mech, total_out, total_gaveup, pie_chart
+    # TIMELINE 
+
+    df_tl = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vT_L10XsTy6OEUN6OOOdEbLDeMzAW000x2bmgXF5acnOY6v8lJpooMiOg4uFQ3e3CI2MfFdDB07I5X_/pub?gid=516767329&single=true&output=csv')
+    df_tl=df_tl.dropna()
+    df_tl['timestamp']=pd.to_datetime(df_tl['timestamp'])
+    df_half = df_tl.resample('H', on='timestamp', offset='01s').total_incidents.count().to_frame().reset_index()
+    bar_timeline = px.bar(df_half,x='timestamp',y='total_incidents',template='plotly_white')
+    bar_timeline.update_xaxes(nticks=5)
+
+    return fig, totals, total_warnings, total_breakdowns, total_accidents, total_gaveup_confirmed, total_gaveup_nconfirmed, pie_chart, bar_timeline
 
 
 
