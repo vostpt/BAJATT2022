@@ -246,7 +246,7 @@ def confirmUupdate(value):
 
     df_live_incidents = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vT_L10XsTy6OEUN6OOOdEbLDeMzAW000x2bmgXF5acnOY6v8lJpooMiOg4uFQ3e3CI2MfFdDB07I5X_/pub?gid=812677681&single=true&output=csv')
     df_live_cc = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vT_L10XsTy6OEUN6OOOdEbLDeMzAW000x2bmgXF5acnOY6v8lJpooMiOg4uFQ3e3CI2MfFdDB07I5X_/pub?gid=1268287201&single=true&output=csv')
-    df_live_warnings = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vT5ZYA_C5ziVBuAAhRI0LKOMSjkpr2A157Q_WNENhgFVsivnRil4Au3lXE0r_QOg1RnE5HRcN_k29Ej/pub?gid=1615808910&single=true&output=csv')
+    df_live_warnings = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vT_L10XsTy6OEUN6OOOdEbLDeMzAW000x2bmgXF5acnOY6v8lJpooMiOg4uFQ3e3CI2MfFdDB07I5X_/pub?gid=1026955157&single=true&output=csv')
 
     df_live_incidents = df_live_incidents.dropna()
     df_live_cc = df_live_cc.dropna()
